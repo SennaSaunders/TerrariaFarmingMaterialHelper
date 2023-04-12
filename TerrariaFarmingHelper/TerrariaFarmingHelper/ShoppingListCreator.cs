@@ -3,7 +3,7 @@
 namespace TerrariaFarmingHelper;
 
 public class ShoppingListCreator {
-	private const string RepoName = "TerrariaFarmingIngredientHelper";
+	private const string RepoName = "TerrariaFarmingMaterialHelper";
 	private const string ProjName = "TerrariaFarmingHelper";
 	private const string Separator = "\\";
 	private const string FileName = "ShoppingList.csv";
