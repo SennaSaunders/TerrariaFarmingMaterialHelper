@@ -1,4 +1,4 @@
-﻿namespace Terraria_Potion_Ingredients;
+﻿namespace TerrariaFarmingHelper;
 
 public class Ingredient {
 	public string Name { get; set; }

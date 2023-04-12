@@ -1,29 +1,28 @@
-﻿namespace Terraria_Potion_Ingredients;
+﻿namespace TerrariaFarmingHelper;
 
 public class CSVParser {
-	public List<Potion> ReadFile() {
-		string path = "Data/" + "Terraria Data - Potions.csv";
+	public List<Item> ReadFile() {
+		string path = "Data/" + "ItemFarmingData.csv";
 		var lines = File.ReadAllLines(path).ToList();
 		lines.RemoveAt(0);//removes heading line
-		List<Potion> potions = new List<Potion>();
+		List<Item> items = new List<Item>();
 
 		foreach (string line in lines) {
-			potions.Add(ParseLine(line));
+			items.Add(ParseLine(line));
 		}
 
-		return potions;
+		return items;
 	}
 
-	private Potion ParseLine(string line) {
+	private Item ParseLine(string line) {
 		var splitLine = line.Split(",");
-		Potion potion = new Potion() {
+		Item item = new Item() {
 			Name = splitLine[0],
-			PotionType = splitLine[1],
-			Description = splitLine[2],
-			DesiredAmount = int.Parse(splitLine[3]),
-			Ingredients = ParseIngredients(splitLine[4..])
+			Description = splitLine[1],
+			DesiredAmount = int.Parse(splitLine[2]),
+			Ingredients = ParseIngredients(splitLine[3..])
 		};
-		return potion;
+		return item;
 	}
 
 	private List<Ingredient> ParseIngredients(string[] ingredientArr) {

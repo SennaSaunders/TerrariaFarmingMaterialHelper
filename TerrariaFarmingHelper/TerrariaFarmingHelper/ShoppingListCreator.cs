@@ -1,16 +1,16 @@
 ﻿using System.Reflection;
 
-namespace Terraria_Potion_Ingredients;
+namespace TerrariaFarmingHelper;
 
 public class ShoppingListCreator {
-	private const string RepoName = "TerrariaPotionIngredientHelper";
-	private const string ProjName = "Terraria Potion Ingredients";
+	private const string RepoName = "TerrariaFarmingIngredientHelper";
+	private const string ProjName = "TerrariaFarmingHelper";
 	private const string Separator = "\\";
 	private const string FileName = "ShoppingList.csv";
 	private const string DataFolderName = "Data";
 
-	public void WriteCSV(List<Potion> potions) {
-		Dictionary<string, int> ingredients = GetIngredientCounts(potions);
+	public void WriteCSV(List<Item> items) {
+		Dictionary<string, int> ingredients = GetIngredientCounts(items);
 		List<string> lines = BuildCSVLines(ingredients);
 		string path = GetSavePath();
 
@@ -43,16 +43,16 @@ public class ShoppingListCreator {
 		return lines;
 	}
 
-	private static Dictionary<string, int> GetIngredientCounts(List<Potion> potions) {
+	private static Dictionary<string, int> GetIngredientCounts(List<Item> items) {
 		Dictionary<string, int> ingredients = new Dictionary<string, int>();
-		foreach (Potion potion in potions) {
-			foreach (Ingredient potionIngredient in potion.Ingredients) {
-				int newIngredientCount = potion.DesiredAmount * potionIngredient.Count;
+		foreach (Item item in items) {
+			foreach (Ingredient itemIngredient in item.Ingredients) {
+				int newIngredientCount = item.DesiredAmount * itemIngredient.Count;
 				;
-				if (ingredients.ContainsKey(potionIngredient.Name)) {
-					ingredients[potionIngredient.Name] += newIngredientCount;
+				if (ingredients.ContainsKey(itemIngredient.Name)) {
+					ingredients[itemIngredient.Name] += newIngredientCount;
 				} else {
-					ingredients.Add(potionIngredient.Name, newIngredientCount);
+					ingredients.Add(itemIngredient.Name, newIngredientCount);
 				}
 			}
 		}
