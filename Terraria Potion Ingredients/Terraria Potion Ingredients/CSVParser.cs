@@ -3,7 +3,8 @@
 public class CSVParser {
 	public List<Potion> ReadFile() {
 		string path = "Data/" + "Terraria Data - Potions.csv";
-		var lines = File.ReadAllLines(path);
+		var lines = File.ReadAllLines(path).ToList();
+		lines.RemoveAt(0);//removes heading line
 		List<Potion> potions = new List<Potion>();
 
 		foreach (string line in lines) {

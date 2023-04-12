@@ -1,3 +1,4 @@
+Potion Name,Type,Description,Num,Ing1,Num,Ing2,Num,Ing3,Num,Ing4,Num,Ing5,Num
 Ammo Reservation Potion,Battle,20% chance to save ammo,120,Bottled Water,1,Moonglow,1,Double Cod,1,,,,
 Archery Potion,Battle,10% increased bow damage and 20% increased arrow speed,60,Bottled Water,1,Lens,1,Daybloom,1,,,,
 Calming Potion,Battle,Decreases enemy spawn rate,30,Bottled Water,1,Daybloom,1,Damselfish,1,,,,
